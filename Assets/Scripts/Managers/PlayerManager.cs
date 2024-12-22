@@ -18,6 +18,14 @@ namespace WinterJam.Managers
         private void Update()
         {
             MoveCharacter();
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (_selectedCharacter == Soldier.Instance) 
+                    _selectedCharacter = Deer.Instance;
+                else if(_selectedCharacter == Deer.Instance)
+                    _selectedCharacter = Soldier.Instance;
+            }
         }
         
         private void MoveCharacter()

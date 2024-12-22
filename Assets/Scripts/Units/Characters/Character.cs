@@ -8,7 +8,8 @@ namespace WinterJam.Units.Characters
     public abstract class Character : Unit
     {
         [field:SerializeField] public bool isActioned { get; private set; }
-        [field:SerializeField] public int MaxMoveDistance { get; private set; }
+        [field:SerializeField] public int MaxMoves { get; private set; }
+        [field:SerializeField] public int LeftMoves { get; private set; }
         
         [field:SerializeField] private IInteractable foundInteractable;
 
@@ -43,19 +44,21 @@ namespace WinterJam.Units.Characters
         {
             if(_standingOnTile)
                 _standingOnTile.Unit = null;
-            if ((int)Vector2.Distance(tile.GridPosition, new(transform.localPosition.x, transform.position.z)) <= MaxMoveDistance)
-            {
-                tile.Unit = this;
-                GridPosition = tile.GridPosition;
-                _standingOnTile = tile;
-                transform.localPosition = tile.transform.position;
-                isActioned = true;
-                FindForInteractsNearby();
-            }
-            else
-            {
-                print("Can't move there!");
-            }
+            
+            tile.Unit = this;
+            GridPosition = tile.GridPosition;
+            _standingOnTile = tile;
+            transform.localPosition = tile.transform.position;
+            isActioned = true;
+            FindForInteractsNearby();
+            
+            // if ((int)Vector2.Distance(tile.GridPosition, new(transform.localPosition.x, transform.position.z)) <= MaxMoves)
+            // {
+            // }
+            // else
+            // {
+            //     print("Can't move there!");
+            // }
         }
 
         public void Interact()

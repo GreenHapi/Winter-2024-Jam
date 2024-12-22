@@ -1,4 +1,8 @@
 
-namespace WinterJam.Units.Characters {
-public class Snowman : Unit { }
+namespace WinterJam.Units.Characters 
+{
+    public class Snowman : Unit
+    {
+        
+    }
 }

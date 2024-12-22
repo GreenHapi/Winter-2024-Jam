@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4afead43c974805aec374340c7ad32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridPosition: {x: 0, y: 0}
+  GridPosition: {x: 4, y: 7}
+  _standingOnTile: {fileID: 0}
   CheckDistance: 0.4
 --- !u!1001 &1094607853680672548
 PrefabInstance:
