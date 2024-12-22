@@ -25,7 +25,6 @@ namespace WinterJam.Managers
                 {
                     if (hit.collider.TryGetComponent<MapTile>(out MapTile mapTile))
                     {
-                        
                         if(mapTile.Unit)
                             ProcessUnit(mapTile.Unit);
                         else if(!mapTile.Unit && _selectedCharacter && !_selectedCharacter.isActioned)

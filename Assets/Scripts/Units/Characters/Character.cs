@@ -33,6 +33,11 @@ namespace WinterJam.Units.Characters
             
             foundInteractable.TryInteract(this);
         }
+        
+        public void ToggleActioned(bool actioned)
+        {
+            isActioned = actioned;
+        }
 
         public IInteractable FindForInteractsNearby()
         {
