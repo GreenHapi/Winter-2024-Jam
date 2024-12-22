@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using NaughtyAttributes;
 using UnityEngine;
 using WinterJam.Units.Characters;
 
@@ -13,7 +14,7 @@ namespace WinterJam.Managers
         public event Action TurnChanged;
         public bool IsPlayerTurn { get; private set;  } = true;
 
-        [ContextMenu("Next turn")]
+        [Button]
         public void NextTurn()
         {
             IsPlayerTurn = !IsPlayerTurn;
@@ -33,6 +34,8 @@ namespace WinterJam.Managers
                     character.ToggleActioned(false);
                 }
             }
+            
+            TurnChanged?.Invoke();
         }
     }
 }

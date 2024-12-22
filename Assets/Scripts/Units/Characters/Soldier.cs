@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace WinterJam.Units.Characters
@@ -7,6 +8,13 @@ namespace WinterJam.Units.Characters
     {
         [SerializeField] private bool _isTorchLighten;
         [SerializeField] private GameObject _torchFire;
+
+        public static Soldier Instance { get; private set; }
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         public void ChangeTorchState(bool lighten)
         {
