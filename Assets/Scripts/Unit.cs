@@ -1,4 +1,4 @@
-﻿using System;
+﻿using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WinterJam.Managers;
@@ -16,7 +16,7 @@ namespace WinterJam
             FixMapTilePos();
         }
 
-        [ContextMenu("Fix map tile unit")]
+        [ContextMenu("Fix map tile unit"), Button]
         private void FixMapTilePos()
         {
             foreach (Transform tile in MapManager.Instance.MapTilesTransform)
