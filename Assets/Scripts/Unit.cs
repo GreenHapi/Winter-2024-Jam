@@ -19,7 +19,7 @@ namespace WinterJam
         }
 
         [ContextMenu("Fix map tile unit"), Button]
-        private void FixMapTilePos()
+        public void FixMapTilePos()
         {
             foreach (Transform tile in MapManager.Instance.MapTilesTransform)
             {
