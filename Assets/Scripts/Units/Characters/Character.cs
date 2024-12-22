@@ -8,7 +8,7 @@ namespace WinterJam.Units.Characters
     {
         [field:SerializeField] public bool isActioned { get; private set; }
         [field:SerializeField] public int MaxMoveDistance { get; private set; }
-        
+
         [field:SerializeField] private IInteractable foundInteractable;
 
         public void MoveOn(MapTile tile)
@@ -30,7 +30,7 @@ namespace WinterJam.Units.Characters
         public void Interact()
         {
             if(isActioned) return;
-            
+
             foundInteractable.TryInteract(this);
         }
         
@@ -39,10 +39,11 @@ namespace WinterJam.Units.Characters
             isActioned = actioned;
         }
 
+        // todo: What happens if we have multiple interactables nearby?
         public IInteractable FindForInteractsNearby()
         {
             if (this is not Soldier) return null;
-            
+
             var map = MapManager.Instance.MapTilesMatrix;
 
             if (map[GridPosition.x + 1, GridPosition.y + 1].Unit &&  map[GridPosition.x + 1, GridPosition.y + 1].Unit is IInteractable interactable1)
