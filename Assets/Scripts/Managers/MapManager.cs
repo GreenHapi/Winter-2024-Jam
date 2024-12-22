@@ -1,6 +1,5 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
-using WinterJam.Units.Buildings;
 
 namespace WinterJam.Managers {
 public class MapManager : MonoBehaviour {
@@ -25,9 +24,9 @@ public class MapManager : MonoBehaviour {
 
     [Button]
     private void FixAllObjectsToTiles() {
-        Obstacle[] allObstacles =
-            GameObject.FindObjectsByType<Obstacle>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-        foreach (Obstacle obstacle in allObstacles) {
+        Unit[] allUnits =
+            GameObject.FindObjectsByType<Unit>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        foreach (var obstacle in allUnits) {
             obstacle.FixMapTilePos();
         }
     }
