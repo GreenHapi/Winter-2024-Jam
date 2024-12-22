@@ -1,8 +1,10 @@
-﻿namespace WinterJam.Units.Buildings
+﻿using WinterJam.Units.Characters;
+
+namespace WinterJam.Units.Buildings
 {
     public class House : Unit, IInteractable
     {
-        public void TryInteract()
+        public void TryInteract(Character character)
         {
             
         }
