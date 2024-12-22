@@ -27,6 +27,10 @@ public class CameraControls : MonoBehaviour {
     [SerializeField] private bool _enablePan = true;
     [SerializeField] private bool _enableZoom = true;
 
+    [Header("Boundaries")]
+    [SerializeField] private bool _enableBoundaries;
+    [SerializeField] private Vector3 _minBounds; // Minimum x, y, z values
+    [SerializeField] private Vector3 _maxBounds; // Maximum x, y, z values
 
     private Vector3 _mouseWorldPosStart;
     private float _zoomScale = 5.0f;
@@ -65,6 +69,19 @@ public class CameraControls : MonoBehaviour {
         }
     }
 
+    private void LateUpdate() {
+        if (_enableBoundaries) {
+            // Clamp the position within the bounds
+            float clampedX = Mathf.Clamp(transform.position.x, _minBounds.x, _maxBounds.x);
+            float clampedY = Mathf.Clamp(transform.position.y, _minBounds.y, _maxBounds.y);
+            float clampedZ = Mathf.Clamp(transform.position.z, _minBounds.z, _maxBounds.z);
+
+            Vector3 clampedPosition = new(clampedX, clampedY, clampedZ);
+
+            // Set the camera's position
+            transform.position = clampedPosition;
+        }
+    }
 
     private void CamOrbit() {
         if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X") == 0) {
@@ -96,5 +113,37 @@ public class CameraControls : MonoBehaviour {
             Mathf.Clamp(_camera.orthographicSize - zoomDiff * _zoomScale, _zoomMin, _zoomMax);
         Vector3 mouseWorldPosDiff = _mouseWorldPosStart - _camera.ScreenToWorldPoint(Input.mousePosition);
         _camera.transform.position += mouseWorldPosDiff;
+    }
+
+
+    private void OnDrawGizmosSelected() {
+        // Draw the bounding box in the editor for visualization
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _minBounds.y, _minBounds.z),
+            new Vector3(_maxBounds.x, _minBounds.y, _minBounds.z));
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _minBounds.y, _maxBounds.z),
+            new Vector3(_maxBounds.x, _minBounds.y, _maxBounds.z));
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _maxBounds.y, _minBounds.z),
+            new Vector3(_maxBounds.x, _maxBounds.y, _minBounds.z));
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _maxBounds.y, _maxBounds.z),
+            new Vector3(_maxBounds.x, _maxBounds.y, _maxBounds.z));
+
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _minBounds.y, _minBounds.z),
+            new Vector3(_minBounds.x, _maxBounds.y, _minBounds.z));
+        Gizmos.DrawLine(new Vector3(_maxBounds.x, _minBounds.y, _minBounds.z),
+            new Vector3(_maxBounds.x, _maxBounds.y, _minBounds.z));
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _minBounds.y, _maxBounds.z),
+            new Vector3(_minBounds.x, _maxBounds.y, _maxBounds.z));
+        Gizmos.DrawLine(new Vector3(_maxBounds.x, _minBounds.y, _maxBounds.z),
+            new Vector3(_maxBounds.x, _maxBounds.y, _maxBounds.z));
+
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _minBounds.y, _minBounds.z),
+            new Vector3(_minBounds.x, _minBounds.y, _maxBounds.z));
+        Gizmos.DrawLine(new Vector3(_maxBounds.x, _minBounds.y, _minBounds.z),
+            new Vector3(_maxBounds.x, _minBounds.y, _maxBounds.z));
+        Gizmos.DrawLine(new Vector3(_minBounds.x, _maxBounds.y, _minBounds.z),
+            new Vector3(_minBounds.x, _maxBounds.y, _maxBounds.z));
+        Gizmos.DrawLine(new Vector3(_maxBounds.x, _maxBounds.y, _minBounds.z),
+            new Vector3(_maxBounds.x, _maxBounds.y, _maxBounds.z));
     }
 }
