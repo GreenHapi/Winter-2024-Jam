@@ -16771,6 +16771,10 @@ PrefabInstance:
       propertyPath: GridPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5640092023354326922, guid: fdc8d76083134b34486dc241548e1910, type: 3}
+      propertyPath: CanSpawnSnowman
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48089,6 +48093,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _newGameSceneIndex: 1
+  <WaveNumber>k__BackingField: 0
+  <ActiveSnowmen>k__BackingField: []
 --- !u!1001 &1794562955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53140,6 +53146,10 @@ PrefabInstance:
       propertyPath: GridPosition.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5640092023354326922, guid: fdc8d76083134b34486dc241548e1910, type: 3}
+      propertyPath: CanSpawnSnowman
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56757,6 +56767,10 @@ PrefabInstance:
     - target: {fileID: 5640092023354326922, guid: fdc8d76083134b34486dc241548e1910, type: 3}
       propertyPath: GridPosition.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640092023354326922, guid: fdc8d76083134b34486dc241548e1910, type: 3}
+      propertyPath: CanSpawnSnowman
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
