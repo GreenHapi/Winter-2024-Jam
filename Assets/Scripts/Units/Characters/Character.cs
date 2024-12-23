@@ -11,7 +11,7 @@ public abstract class Character : Unit {
     [field: SerializeField] public int MovesLeft { get; private set; }
     [SerializeField] private bool _allowDiagonalInteractions = false;
 
-    private IInteractable _foundInteractable;
+    protected IInteractable FoundInteractable;
 
     public void MoveTo(Vector2Int dir) {
         MapTile tile = null;
@@ -80,10 +80,10 @@ public abstract class Character : Unit {
     }
 
     public void Interact() {
-        if (_foundInteractable != null) {
-            bool success = _foundInteractable.TryInteract(this);
+        if (FoundInteractable != null) {
+            bool success = FoundInteractable.TryInteract(this);
             if (this is Soldier) {
-                if (_foundInteractable is House && success) {
+                if (FoundInteractable is House && success) {
                     Soldier soldier = (Soldier) this;
                     soldier.ChangeTorchState(false);
                 }
@@ -137,7 +137,7 @@ public abstract class Character : Unit {
 
             if (tile && tile.Unit is IInteractable interactable) {
                 print(interactable);
-                _foundInteractable = interactable;
+                FoundInteractable = interactable;
                 break;
             }
         }

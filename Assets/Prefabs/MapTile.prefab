@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Unit: {fileID: 0}
   GridPosition: {x: 0, y: 0}
+  CanSpawnSnowman: 0
 --- !u!33 &1304085224247176314
 MeshFilter:
   m_ObjectHideFlags: 0

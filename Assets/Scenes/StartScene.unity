@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _newGameSceneIndex: 1
+  <WaveNumber>k__BackingField: 0
+  <ActiveSnowmen>k__BackingField: []
+  _snowmanPrefab: {fileID: 3161127935264376348, guid: 563f7ef07ce4c6d459bd4ab65718c98e, type: 3}
 --- !u!4 &547649
 Transform:
   m_ObjectHideFlags: 0

@@ -12,19 +12,27 @@ namespace WinterJam.Units.Characters
 
         private void Awake()
         {
-            foreach (var house in FindObjectsByType<House>(FindObjectsSortMode.None))
+            var houses = FindObjectsByType<House>(FindObjectsSortMode.None);
+            if (houses.Length == 0)
             {
-                if (!_targetHouse)
+                Debug.LogWarning("No houses found on the map.");
+                return;
+            }
+
+            foreach (var house in houses)
+            {
+                if (_targetHouse == null)
+                {
                     _targetHouse = house;
+                }
 
                 if (Vector2Int.Distance(GridPosition, house.GridPosition) <
-                    Vector2Int.Distance(_targetHouse.GridPosition, house.GridPosition))
+                    Vector2Int.Distance(GridPosition, _targetHouse.GridPosition))
                 {
                     _targetHouse = house;
                 }
             }
         }
-
 
         private void OnEnable() => TurnsManager.Instance.TurnChanged += MoveToTarget;
 
@@ -32,14 +40,24 @@ namespace WinterJam.Units.Characters
 
         private async void MoveToTarget()
         {
-            if (TurnsManager.Instance.IsPlayerTurn) return;
+            if (TurnsManager.Instance.IsPlayerTurn || destroyCancellationToken.IsCancellationRequested)
+                return;
 
             for (int i = 0; i < MaxMoves; i++)
             {
                 destroyCancellationToken.ThrowIfCancellationRequested();
-                await Task.Delay(300);
+
+                Vector2Int direction = CheckFreeDirection();
+                if (direction == Vector2Int.zero)
+                    break;
+
+                MoveTo(direction);
+
+                
+                FoundInteractable?.TryInteract(this);
+                
+                await Task.Delay(1000);
                 destroyCancellationToken.ThrowIfCancellationRequested();
-                MoveTo(CheckFreeDirection());
             }
 
             TurnsManager.Instance.EnemyFinishedItsMovement();
@@ -47,8 +65,15 @@ namespace WinterJam.Units.Characters
 
         private Vector2Int CheckFreeDirection()
         {
+            if (MapManager.Instance == null || MapManager.Instance.MapTilesMatrix == null)
+            {
+                Debug.LogError("MapManager or MapTilesMatrix is not initialized.");
+                return Vector2Int.zero;
+            }
+
             var map = MapManager.Instance.MapTilesMatrix;
             Vector2Int bestDir = Vector2Int.zero;
+            float shortestDistance = float.MaxValue;
 
             Vector2Int[] directions =
             {
@@ -60,17 +85,23 @@ namespace WinterJam.Units.Characters
 
             foreach (var offset in directions)
             {
-                var tile = map[GridPosition.x + offset.x, GridPosition.y + offset.y];
+                Vector2Int nextPos = GridPosition + offset;
 
-                if (tile && !tile.Unit)
+                // Boundary check
+                if (nextPos.x < 0 || nextPos.y < 0 || 
+                    nextPos.x >= map.GetLength(0) || nextPos.y >= map.GetLength(1))
+                    continue;
+
+                var tile = map[nextPos.x, nextPos.y];
+
+                if (tile != null && tile.Unit == null) // Ensure the tile exists and is unoccupied
                 {
-                    bestDir = Vector2Int.Distance(
-                                  new(GridPosition.x + offset.x, GridPosition.y + offset.y), _targetHouse.GridPosition)
-                            < Vector2Int.Distance(
-                                  new(GridPosition.x + bestDir.x, GridPosition.y + bestDir.y),
-                                  _targetHouse.GridPosition)
-                        ? offset
-                        : bestDir;
+                    float distance = Vector2Int.Distance(nextPos, _targetHouse.GridPosition);
+                    if (distance < shortestDistance)
+                    {
+                        shortestDistance = distance;
+                        bestDir = offset;
+                    }
                 }
             }
 
