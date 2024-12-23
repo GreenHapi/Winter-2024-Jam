@@ -38,6 +38,8 @@ namespace WinterJam.Managers
             }
         }
 
+        public void Interact() => SelectedCharacter.Interact();
+
         private void MoveCharacter()
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
