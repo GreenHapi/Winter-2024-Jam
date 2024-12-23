@@ -26,6 +26,8 @@ namespace WinterJam.Units.Characters
                     _targetHouse = house;
                 }
 
+                print(house);
+                
                 if (Vector2Int.Distance(GridPosition, house.GridPosition) <
                     Vector2Int.Distance(GridPosition, _targetHouse.GridPosition))
                 {
@@ -93,9 +95,11 @@ namespace WinterJam.Units.Characters
                     continue;
                 }
 
+                var tile = map[gridPositionX, gridPositionY];
+                
                 if (tile != null && tile.Unit == null) // Ensure the tile exists and is unoccupied
                 {
-                    float distance = Vector2Int.Distance(nextPos, _targetHouse.GridPosition);
+                    float distance = Vector2Int.Distance(new(gridPositionX, gridPositionY), _targetHouse.GridPosition);
                     if (distance < shortestDistance)
                     {
                         shortestDistance = distance;
