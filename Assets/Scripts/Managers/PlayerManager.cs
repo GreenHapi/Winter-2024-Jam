@@ -17,6 +17,8 @@ namespace WinterJam.Managers
 
         private void Update()
         {
+            if (!TurnsManager.Instance.IsPlayerTurn) return;
+
             MoveCharacter();
 
             if (Input.GetKeyDown(KeyCode.Q)) {
@@ -42,8 +44,7 @@ namespace WinterJam.Managers
 
         private void MoveCharacter()
         {
-            if (!TurnsManager.Instance.IsPlayerTurn) return;
-            
+
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                 MoveUp();
             }

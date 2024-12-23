@@ -45,12 +45,9 @@ public abstract class Character : Unit {
             MoveOn(tile);
             MovesLeft--;
         }
-        else {
-            return;
-        }
 
-        if (MovesLeft <= 0)
-            isActioned = true;
+        // if (MovesLeft <= 0)
+        //     isActioned = true;
     }
 
     private void RotateToFaceMovementDirection(Vector2Int dir) {
