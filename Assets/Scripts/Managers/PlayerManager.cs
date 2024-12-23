@@ -1,30 +1,26 @@
-﻿using System;
-using PrimeTween;
-using UnityEngine;
-using WinterJam.Units.Buildings;
+﻿using UnityEngine;
 using WinterJam.Units.Characters;
 
 namespace WinterJam.Managers
 {
     public class PlayerManager : MonoBehaviour
     {
+        [SerializeField] private Character _soldier ;
+        [SerializeField] private Character _deer;
+
         [SerializeField] private Character _selectedCharacter;
 
-        private void Awake()
+        private void Start()
         {
-            _selectedCharacter = Soldier.Instance;
+            _selectedCharacter = _soldier;
         }
 
         private void Update()
         {
             MoveCharacter();
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (_selectedCharacter == Soldier.Instance) 
-                    _selectedCharacter = Deer.Instance;
-                else if(_selectedCharacter == Deer.Instance)
-                    _selectedCharacter = Soldier.Instance;
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                SwitchCharacter();
             }
             
             if (Input.GetKeyDown(KeyCode.E))
@@ -32,21 +28,27 @@ namespace WinterJam.Managers
                 _selectedCharacter.Interact();
             }
         }
-        
+
+        private void SwitchCharacter() {
+            if (_selectedCharacter == _soldier) {
+                _selectedCharacter = _deer;
+            }
+            else if (_selectedCharacter == _deer) {
+                _selectedCharacter = _soldier;
+            }
+        }
+
         private void MoveCharacter()
         {
-            if (Input.GetKeyDown(KeyCode.W)) 
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 _selectedCharacter.MoveTo(Vector2Int.up);
-            if (Input.GetKeyDown(KeyCode.S)) 
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
                 _selectedCharacter.MoveTo(Vector2Int.down);
-            if (Input.GetKeyDown(KeyCode.A)) 
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
                 _selectedCharacter.MoveTo(Vector2Int.left);
-            if (Input.GetKeyDown(KeyCode.D)) 
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                 _selectedCharacter.MoveTo(Vector2Int.right);
         }
-        
-        
-        
 
         // private void CheckClick()
         // {

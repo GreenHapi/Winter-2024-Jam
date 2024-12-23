@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using WinterJam.Managers;
 
@@ -23,7 +23,7 @@ namespace WinterJam.Units.Characters
                 transform.localRotation = new Quaternion(0, 90, 0, 0);
             if (dir == Vector2Int.left)
                 transform.localRotation = new Quaternion(0, -90, 0, 0);
-            
+
             MapTile tile = null;
 
             try
@@ -34,25 +34,25 @@ namespace WinterJam.Units.Characters
             {
                 return;
             }
-            
+
             if(tile is null || tile.Unit) return;
 
             if(MovesLeft !<= 0)
                 MovesLeft--;
             MoveOn(tile);
         }
-        
+
         private void MoveOn(MapTile tile)
         {
             if(_standingOnTile)
                 _standingOnTile.Unit = null;
-            
+
             tile.Unit = this;
             GridPosition = tile.GridPosition;
             _standingOnTile = tile;
             transform.localPosition = tile.transform.position;
             FindForInteractsNearby();
-            
+
             // if ((int)Vector2.Distance(tile.GridPosition, new(transform.localPosition.x, transform.position.z)) <= MaxMoves)
             // {
             // }
@@ -77,8 +77,8 @@ namespace WinterJam.Units.Characters
             if (this is not Soldier) return;
             
             var map = MapManager.Instance.MapTilesMatrix;
-            
-            
+
+
             Vector2Int[] directions = {
                 new Vector2Int(1, 1),
                 new Vector2Int(1, -1),
@@ -103,6 +103,8 @@ namespace WinterJam.Units.Characters
             
             return;
             
+
+
 
             // if (map[GridPosition.x + 1, GridPosition.y + 1].Unit &&  map[GridPosition.x + 1, GridPosition.y + 1].Unit is IInteractable interactable1)
             //     foundInteractable = interactable1;

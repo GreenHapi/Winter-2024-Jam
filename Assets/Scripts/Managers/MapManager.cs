@@ -20,10 +20,12 @@ public class MapManager : MonoBehaviour {
                 MapTilesMatrix[x, y] = MapTilesTransform.Find($"MapTile ({x}, {y})").GetComponent<MapTile>();
             }
         }
+
+        AssignUnitsToTiles();
     }
 
     [Button]
-    private void FixAllObjectsToTiles() {
+    private void AssignUnitsToTiles() {
         Unit[] allUnits =
             GameObject.FindObjectsByType<Unit>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         foreach (var obstacle in allUnits) {
