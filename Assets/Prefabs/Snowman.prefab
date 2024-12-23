@@ -48,6 +48,10 @@ MonoBehaviour:
   GridPosition: {x: 4, y: 7}
   _standingOnTile: {fileID: 0}
   CheckDistance: 0.4
+  <isActioned>k__BackingField: 0
+  <MaxMoves>k__BackingField: 4
+  <MovesLeft>k__BackingField: 4
+  _targetHouse: {fileID: 0}
 --- !u!1001 &1094607853680672548
 PrefabInstance:
   m_ObjectHideFlags: 0
