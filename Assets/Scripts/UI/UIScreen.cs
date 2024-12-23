@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace UI {
-public class MainMenu : MonoBehaviour {
+public class UIScreen : MonoBehaviour {
     public void Show() {
         gameObject.SetActive(true);
     }
