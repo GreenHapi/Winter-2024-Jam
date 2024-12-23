@@ -11,7 +11,7 @@ namespace WinterJam.Managers
     {
         public static TurnsManager Instance { get; private set; }
         private void Awake() => Instance = this;
-
+        
         public event Action TurnChanged;
 
         private int _enemiesCount;

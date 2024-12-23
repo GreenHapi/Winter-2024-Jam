@@ -68,7 +68,7 @@ public abstract class Character : Unit {
         }
     }
 
-    private void MoveOn(MapTile tile) {
+    public void MoveOn(MapTile tile) {
         if (_standingOnTile)
             _standingOnTile.Unit = null;
 
