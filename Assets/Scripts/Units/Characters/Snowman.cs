@@ -30,12 +30,15 @@ namespace WinterJam.Units.Characters
 
         private void OnDisable() => TurnsManager.Instance.TurnChanged -= MoveToTarget;
 
-        private void MoveToTarget()
+        private async void MoveToTarget()
         {
             if(TurnsManager.Instance.IsPlayerTurn) return;
             
             for (int i = 0; i < MaxMoves; i++)
             {
+                destroyCancellationToken.ThrowIfCancellationRequested();
+                await Task.Delay(300);
+                destroyCancellationToken.ThrowIfCancellationRequested();
                 MoveTo(CheckFreeDirection());
             }
         }
