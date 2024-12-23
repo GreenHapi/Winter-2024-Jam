@@ -2878,6 +2878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1467890926}
     m_Modifications:
+    - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
+      propertyPath: _isFrozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2023064735320345324, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -19998,6 +20002,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1467890926}
     m_Modifications:
     - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
+      propertyPath: _isFrozen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
       propertyPath: GridPosition.x
       value: 5
       objectReference: {fileID: 0}
@@ -21490,6 +21498,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1467890926}
     m_Modifications:
+    - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
+      propertyPath: _isFrozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
       propertyPath: GridPosition.x
       value: 5
@@ -49062,6 +49074,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1467890926}
     m_Modifications:
+    - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
+      propertyPath: _isFrozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2023064735320345324, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -59738,6 +59754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1467890926}
     m_Modifications:
+    - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
+      propertyPath: _isFrozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 351344042838472975, guid: b44566e8466b5044886cc3621e9951e8, type: 3}
       propertyPath: GridPosition.x
       value: 2

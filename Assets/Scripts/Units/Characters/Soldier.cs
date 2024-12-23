@@ -1,27 +1,18 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
-namespace WinterJam.Units.Characters
-{
-    public class Soldier : Character
-    {
-        [SerializeField] private bool _isTorchLighten;
-        [SerializeField] private GameObject _torchFire;
+namespace WinterJam.Units.Characters {
+public class Soldier : Character {
+    [field: SerializeField] public bool IsTorchLit { get; private set; }
+    [SerializeField] private GameObject _torchFire;
 
-        public static Soldier Instance { get; private set; }
-
-        private void Awake()
-        {
-            Instance = this;
-            _torchFire.SetActive(false);
-        }
-
-        public void ChangeTorchState(bool lighten)
-        {
-            _isTorchLighten = lighten;
-
-            _torchFire.SetActive(lighten);
-        }
+    private void Awake() {
+        _torchFire.SetActive(false);
     }
+
+    public void ChangeTorchState(bool lighten) {
+        IsTorchLit = lighten;
+
+        _torchFire.SetActive(lighten);
+    }
+}
 }
