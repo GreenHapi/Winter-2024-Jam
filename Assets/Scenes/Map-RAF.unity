@@ -4780,6 +4780,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 921597038894987692, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1979247216}
+    - target: {fileID: 1056937683555457784, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1979247216}
+    - target: {fileID: 1527029335231000762, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1979247216}
+    - target: {fileID: 1954818616859176032, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
+      propertyPath: _playerManager
+      value: 
+      objectReference: {fileID: 1979247216}
     - target: {fileID: 4804274135727869780, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4860,14 +4876,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7165558655652178426, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1979247216}
     - target: {fileID: 7668520193369047952, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2030758910}
-    - target: {fileID: 7668520193369047952, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9112797154541135720, guid: 6a8ea08f6d8554646bbbac283364846a, type: 3}
       propertyPath: m_Name
       value: Movement Canvas
@@ -50963,7 +50979,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soldier: {fileID: 655948033}
   _deer: {fileID: 1217077008}
-  _selectedCharacter: {fileID: 655948033}
 --- !u!4 &1979247217
 Transform:
   m_ObjectHideFlags: 0

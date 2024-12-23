@@ -8,11 +8,11 @@ namespace WinterJam.Managers
         [SerializeField] private Character _soldier ;
         [SerializeField] private Character _deer;
 
-        [SerializeField] private Character _selectedCharacter;
+        public Character SelectedCharacter { get; private set; }
 
-        private void Start()
+         private void Start()
         {
-            _selectedCharacter = _soldier;
+            SelectedCharacter = _soldier;
         }
 
         private void Update()
@@ -25,16 +25,16 @@ namespace WinterJam.Managers
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _selectedCharacter.Interact();
+                SelectedCharacter.Interact();
             }
         }
 
         private void SwitchCharacter() {
-            if (_selectedCharacter == _soldier) {
-                _selectedCharacter = _deer;
+            if (SelectedCharacter == _soldier) {
+                SelectedCharacter = _deer;
             }
-            else if (_selectedCharacter == _deer) {
-                _selectedCharacter = _soldier;
+            else if (SelectedCharacter == _deer) {
+                SelectedCharacter = _soldier;
             }
         }
 
@@ -59,22 +59,22 @@ namespace WinterJam.Managers
 
         public void MoveRight() {
             Debug.Log("MoveRight");
-            _selectedCharacter.MoveTo(Vector2Int.right);
+            SelectedCharacter.MoveTo(Vector2Int.right);
         }
 
         public void MoveLeft() {
             Debug.Log("MoveLeft");
-            _selectedCharacter.MoveTo(Vector2Int.left);
+            SelectedCharacter.MoveTo(Vector2Int.left);
         }
 
         public void MoveDown() {
             Debug.Log("MoveDown");
-            _selectedCharacter.MoveTo(Vector2Int.down);
+            SelectedCharacter.MoveTo(Vector2Int.down);
         }
 
         public void MoveUp() {
             Debug.Log("MoveUp");
-            _selectedCharacter.MoveTo(Vector2Int.up);
+            SelectedCharacter.MoveTo(Vector2Int.up);
         }
 
         // private void CheckClick()
