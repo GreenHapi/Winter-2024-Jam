@@ -8,7 +8,8 @@ namespace WinterJam
     public class MapTile : MonoBehaviour
     {
         [field: SerializeField] public Unit Unit;
-        [FormerlySerializedAs("MaxPosition")] [field: SerializeField] public Vector2Int GridPosition;
+        [field: SerializeField] public Vector2Int GridPosition;
+        [field: SerializeField] public bool CanSpawnSnowman;
 
         private void OnValidate()
         {
