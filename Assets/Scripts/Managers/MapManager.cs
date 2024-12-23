@@ -11,7 +11,9 @@ public class MapManager : MonoBehaviour {
         Instance = this;
     }
 
+
     public void Awake() {
+        Instance = this;
         float mapSize = Mathf.Sqrt(MapTilesTransform.childCount);
         MapTilesMatrix = new MapTile[(int) mapSize, (int) mapSize];
 

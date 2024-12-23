@@ -10,19 +10,26 @@ namespace WinterJam.Units.Characters
         // [field:SerializeField] public bool isActioned { get; private set; }
         [field:SerializeField] public int MaxMoves { get; private set; }
         [field:SerializeField] public int MovesLeft { get; private set; }
-        
+
         [SerializeField] private IInteractable foundInteractable;
 
         public void MoveTo(Vector2Int dir)
         {
-            if (dir == Vector2Int.up)
-                transform.localRotation = new Quaternion(0, 0, 0, 0);
-            if (dir == Vector2Int.down)
-                transform.localRotation = new Quaternion(0, 180, 0, 0);
-            if (dir == Vector2Int.right)
-                transform.localRotation = new Quaternion(0, 90, 0, 0);
-            if (dir == Vector2Int.left)
-                transform.localRotation = new Quaternion(0, -90, 0, 0);
+            if (dir == Vector2Int.up) {
+                transform.localRotation = Quaternion.Euler(0,0,0);
+            }
+
+            if (dir == Vector2Int.down) {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            if (dir == Vector2Int.right) {
+                transform.localRotation = Quaternion.Euler(0, 90, 0);
+            }
+
+            if (dir == Vector2Int.left) {
+                transform.localRotation = Quaternion.Euler(0, -90, 0);
+            }
 
             MapTile tile = null;
 
@@ -30,15 +37,20 @@ namespace WinterJam.Units.Characters
             {
                 tile = MapManager.Instance.MapTilesMatrix[GridPosition.x + dir.x, GridPosition.y + dir.y];
             }
-            catch (Exception _)
+            catch (Exception e)
             {
+                Debug.Log(e);
                 return;
             }
 
-            if(tile is null || tile.Unit) return;
+            if(tile is null || tile.Unit) {
+                return;
+            }
 
-            if(MovesLeft !<= 0)
+            if(MovesLeft !<= 0) {
                 MovesLeft--;
+            }
+
             MoveOn(tile);
         }
 
@@ -66,7 +78,7 @@ namespace WinterJam.Units.Characters
         {
             foundInteractable?.TryInteract(this);
         }
-        
+
         public void ResetMoves()
         {
             MovesLeft = MaxMoves;
@@ -75,7 +87,7 @@ namespace WinterJam.Units.Characters
         public void FindForInteractsNearby()
         {
             if (this is not Soldier) return;
-            
+
             var map = MapManager.Instance.MapTilesMatrix;
 
 
@@ -100,9 +112,9 @@ namespace WinterJam.Units.Characters
                     break;
                 }
             }
-            
+
             return;
-            
+
 
 
 
