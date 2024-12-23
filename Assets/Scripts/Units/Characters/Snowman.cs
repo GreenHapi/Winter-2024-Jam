@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using WinterJam.Managers;
@@ -26,8 +25,8 @@ namespace WinterJam.Units.Characters
                     _targetHouse = house;
                 }
 
-                print(house);
-                
+                // print(house);
+
                 if (Vector2Int.Distance(GridPosition, house.GridPosition) <
                     Vector2Int.Distance(GridPosition, _targetHouse.GridPosition))
                 {
@@ -55,9 +54,9 @@ namespace WinterJam.Units.Characters
 
                 MoveTo(direction);
 
-                
+
                 FoundInteractable?.TryInteract(this);
-                
+
                 await Task.Delay(1000);
                 destroyCancellationToken.ThrowIfCancellationRequested();
             }
@@ -96,7 +95,7 @@ namespace WinterJam.Units.Characters
                 }
 
                 var tile = map[gridPositionX, gridPositionY];
-                
+
                 if (tile != null && tile.Unit == null) // Ensure the tile exists and is unoccupied
                 {
                     float distance = Vector2Int.Distance(new(gridPositionX, gridPositionY), _targetHouse.GridPosition);
