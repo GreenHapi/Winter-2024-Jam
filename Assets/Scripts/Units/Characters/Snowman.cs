@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using WinterJam.Managers;
@@ -11,28 +12,28 @@ namespace WinterJam.Units.Characters
 
         private void Awake()
         {
-            var houses = FindObjectsByType<House>(FindObjectsSortMode.None);
-            if (houses.Length == 0)
-            {
-                Debug.LogWarning("No houses found on the map.");
-                return;
-            }
-
-            foreach (var house in houses)
-            {
-                if (_targetHouse == null)
-                {
-                    _targetHouse = house;
-                }
-
-                // print(house);
-
-                if (Vector2Int.Distance(GridPosition, house.GridPosition) <
-                    Vector2Int.Distance(GridPosition, _targetHouse.GridPosition))
-                {
-                    _targetHouse = house;
-                }
-            }
+            _targetHouse = FindObjectsByType<House>(FindObjectsSortMode.None).OrderBy(x => Random.value).First();
+            // if (houses.Length == 0)
+            // {
+            //     Debug.LogWarning("No houses found on the map.");
+            //     return;
+            // }
+            //
+            // foreach (var house in houses)
+            // {
+            //     if (_targetHouse == null)
+            //     {
+            //         _targetHouse = house;
+            //     }
+            //
+            //     // print(house);
+            //
+            //     if (Vector2Int.Distance(GridPosition, house.GridPosition) <
+            //         Vector2Int.Distance(GridPosition, _targetHouse.GridPosition))
+            //     {
+            //         _targetHouse = house;
+            //     }
+            // }
         }
 
         private void OnEnable() => TurnsManager.Instance.TurnChanged += MoveToTarget;

@@ -28,7 +28,7 @@ namespace Managers
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             _snowmanTiles = new List<MapTile>();
             for (int i = 0; i < MapManager.Instance.MapTilesTransform.childCount - 1; i++)
@@ -36,10 +36,7 @@ namespace Managers
                 var tile = MapManager.Instance.MapTilesTransform.GetChild(i).GetComponent<MapTile>();
                 if (tile && tile.CanSpawnSnowman)
                 {
-                    print(tile);
-                    print(_snowmanTiles);
                     _snowmanTiles.Add(tile);
-                    print(tile);
                 }
             }
         
