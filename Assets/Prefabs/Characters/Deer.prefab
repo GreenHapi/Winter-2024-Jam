@@ -50,8 +50,8 @@ MonoBehaviour:
   _standingOnTile: {fileID: 0}
   CheckDistance: 0.4
   <isActioned>k__BackingField: 0
-  <MaxMoves>k__BackingField: 7
-  <LeftMoves>k__BackingField: 0
+  <MaxMoves>k__BackingField: 8
+  <MovesLeft>k__BackingField: 8
 --- !u!1001 &2413636411323442156
 PrefabInstance:
   m_ObjectHideFlags: 0

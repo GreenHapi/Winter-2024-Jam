@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6040624313771910859}
+  - component: {fileID: 5474900870660725438}
   m_Layer: 0
   m_Name: Fire Source
   m_TagString: Untagged
@@ -155,6 +156,21 @@ Transform:
   - {fileID: 7809226788908255945}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5474900870660725438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285386669744332579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61742b0c691f4051a70c7222f81b1e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridPosition: {x: 0, y: 0}
+  _standingOnTile: {fileID: 0}
+  CheckDistance: 0.4
 --- !u!1001 &611056421680695218
 PrefabInstance:
   m_ObjectHideFlags: 0

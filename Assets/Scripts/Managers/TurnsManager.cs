@@ -23,7 +23,7 @@ namespace WinterJam.Managers
                 foreach (var character in GameObject.FindObjectsByType<Character>(FindObjectsSortMode.None)
                              .Where((c) => c is Soldier or Deer))
                 {
-                    character.ToggleActioned(false);
+                    character.ResetMoves();
                 }
             }
             else
@@ -31,7 +31,7 @@ namespace WinterJam.Managers
                 foreach (var character in GameObject.FindObjectsByType<Character>(FindObjectsSortMode.None)
                              .Where((c) => c is Snowman))
                 {
-                    character.ToggleActioned(false);
+                    character.ResetMoves();
                 }
             }
             

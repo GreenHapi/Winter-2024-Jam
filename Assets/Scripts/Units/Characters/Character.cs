@@ -7,11 +7,11 @@ namespace WinterJam.Units.Characters
     /// Unit that can be played by player/bot
     public abstract class Character : Unit
     {
-        [field:SerializeField] public bool isActioned { get; private set; }
+        // [field:SerializeField] public bool isActioned { get; private set; }
         [field:SerializeField] public int MaxMoves { get; private set; }
-        [field:SerializeField] public int LeftMoves { get; private set; }
+        [field:SerializeField] public int MovesLeft { get; private set; }
         
-        [field:SerializeField] private IInteractable foundInteractable;
+        [SerializeField] private IInteractable foundInteractable;
 
         public void MoveTo(Vector2Int dir)
         {
@@ -30,13 +30,15 @@ namespace WinterJam.Units.Characters
             {
                 tile = MapManager.Instance.MapTilesMatrix[GridPosition.x + dir.x, GridPosition.y + dir.y];
             }
-            catch (Exception e)
+            catch (Exception _)
             {
                 return;
             }
             
             if(tile is null || tile.Unit) return;
-            
+
+            if(MovesLeft !<= 0)
+                MovesLeft--;
             MoveOn(tile);
         }
         
@@ -49,7 +51,6 @@ namespace WinterJam.Units.Characters
             GridPosition = tile.GridPosition;
             _standingOnTile = tile;
             transform.localPosition = tile.transform.position;
-            isActioned = true;
             FindForInteractsNearby();
             
             // if ((int)Vector2.Distance(tile.GridPosition, new(transform.localPosition.x, transform.position.z)) <= MaxMoves)
@@ -63,19 +64,17 @@ namespace WinterJam.Units.Characters
 
         public void Interact()
         {
-            if(isActioned) return;
-            
-            foundInteractable.TryInteract(this);
+            foundInteractable?.TryInteract(this);
         }
         
-        public void ToggleActioned(bool actioned)
+        public void ResetMoves()
         {
-            isActioned = actioned;
+            MovesLeft = MaxMoves;
         }
 
-        public IInteractable FindForInteractsNearby()
+        public void FindForInteractsNearby()
         {
-            if (this is not Soldier) return null;
+            if (this is not Soldier) return;
             
             var map = MapManager.Instance.MapTilesMatrix;
             
@@ -96,11 +95,13 @@ namespace WinterJam.Units.Characters
                 var element = map[GridPosition.x + offset.x, GridPosition.y + offset.y];
                 if (element && element.Unit is IInteractable interactable)
                 {
+                    print(interactable);
                     foundInteractable = interactable;
                     break;
                 }
             }
             
+            return;
             
 
             // if (map[GridPosition.x + 1, GridPosition.y + 1].Unit &&  map[GridPosition.x + 1, GridPosition.y + 1].Unit is IInteractable interactable1)
@@ -120,7 +121,6 @@ namespace WinterJam.Units.Characters
             // else if (map[GridPosition.x - 1, GridPosition.y].Unit && map[GridPosition.x - 1, GridPosition.y].Unit is IInteractable interactable8)
             //     foundInteractable = interactable8;
 
-            return foundInteractable;
         }
     }
 }

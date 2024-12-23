@@ -9,7 +9,7 @@ namespace WinterJam
     public abstract class Unit : MonoBehaviour
     {
         [field: SerializeField] public Vector2Int GridPosition;
-        [FormerlySerializedAs("standingOnTile")] [field:SerializeField] protected MapTile _standingOnTile;
+        [field:SerializeField] protected MapTile _standingOnTile;
 
         [field: SerializeField] public float CheckDistance = 0.4f;
 

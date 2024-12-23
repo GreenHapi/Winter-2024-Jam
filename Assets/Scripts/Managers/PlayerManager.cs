@@ -26,6 +26,11 @@ namespace WinterJam.Managers
                 else if(_selectedCharacter == Deer.Instance)
                     _selectedCharacter = Soldier.Instance;
             }
+            
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _selectedCharacter.Interact();
+            }
         }
         
         private void MoveCharacter()

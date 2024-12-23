@@ -14,11 +14,14 @@ namespace WinterJam.Units.Characters
         private void Awake()
         {
             Instance = this;
+            _torchFire.SetActive(false);
         }
 
         public void ChangeTorchState(bool lighten)
         {
             _isTorchLighten = lighten;
+
+            _torchFire.SetActive(lighten);
         }
     }
 }
