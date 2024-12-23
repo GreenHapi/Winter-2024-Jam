@@ -31,6 +31,8 @@ public abstract class Character : Unit {
 
         if (MovesLeft > 0) {
             MovesLeft--;
+        }
+        else {
             return;
         }
 
