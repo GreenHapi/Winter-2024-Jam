@@ -60,9 +60,17 @@ namespace WinterJam.Units.Characters
 
             foreach (var offset in directions)
             {
-                var tile = map[GridPosition.x + offset.x, GridPosition.y + offset.y];
+                int gridPositionX = GridPosition.x + offset.x;
+                int gridPositionY = GridPosition.y + offset.y;
+                if (MapManager.Instance.IsPositionInsideMapBounds(gridPositionX, gridPositionY) == false)
+                {
+                    Debug.Log("Out of map bounds.");
+                    continue;
+                }
 
-                if (tile && !tile.Unit)
+                var tile = map[gridPositionX, gridPositionY];
+
+                if (tile != null && !tile.Unit)
                 {
                     bestDir = Vector2Int.Distance(
                                   new(GridPosition.x + offset.x, GridPosition.y + offset.y), _targetHouse.GridPosition)
