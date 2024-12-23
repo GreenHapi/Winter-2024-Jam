@@ -29,8 +29,9 @@ public abstract class Character : Unit {
             return;
         }
 
-        if (MovesLeft ! <= 0) {
+        if (MovesLeft > 0) {
             MovesLeft--;
+            return;
         }
 
         MoveOn(tile);
