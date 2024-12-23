@@ -29,7 +29,7 @@ namespace WinterJam.Managers
             }
         }
 
-        private void SwitchCharacter() {
+        public void SwitchCharacter() {
             if (SelectedCharacter == _soldier) {
                 SelectedCharacter = _deer;
             }
