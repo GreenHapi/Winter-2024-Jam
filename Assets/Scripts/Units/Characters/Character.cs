@@ -6,7 +6,7 @@ using WinterJam.Units.Buildings;
 namespace WinterJam.Units.Characters {
 /// Unit that can be played by player/bot
 public abstract class Character : Unit {
-    [field:SerializeField] public bool isActioned { get; private set; }
+    [field: SerializeField] public bool isActioned { get; private set; }
     [field: SerializeField] public int MaxMoves { get; private set; }
     [field: SerializeField] public int MovesLeft { get; private set; }
     [SerializeField] private bool _allowDiagonalInteractions = false;
@@ -14,8 +14,6 @@ public abstract class Character : Unit {
     private IInteractable _foundInteractable;
 
     public void MoveTo(Vector2Int dir) {
-        RotateToFaceMovementDirection(dir);
-
         MapTile tile = null;
 
         int gridPositionX = GridPosition.x + dir.x;
@@ -43,12 +41,14 @@ public abstract class Character : Unit {
         }
 
         if (MovesLeft > 0) {
+            RotateToFaceMovementDirection(dir);
             MoveOn(tile);
             MovesLeft--;
         }
         else {
             return;
         }
+
         if (MovesLeft <= 0)
             isActioned = true;
     }
