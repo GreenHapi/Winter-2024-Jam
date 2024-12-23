@@ -15,21 +15,7 @@ namespace WinterJam.Units.Characters
 
         public void MoveTo(Vector2Int dir)
         {
-            if (dir == Vector2Int.up) {
-                transform.localRotation = Quaternion.Euler(0,0,0);
-            }
-
-            if (dir == Vector2Int.down) {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-            }
-
-            if (dir == Vector2Int.right) {
-                transform.localRotation = Quaternion.Euler(0, 90, 0);
-            }
-
-            if (dir == Vector2Int.left) {
-                transform.localRotation = Quaternion.Euler(0, -90, 0);
-            }
+            RotateToFaceMovementDirection(dir);
 
             MapTile tile = null;
 
@@ -52,6 +38,24 @@ namespace WinterJam.Units.Characters
             }
 
             MoveOn(tile);
+        }
+
+        private void RotateToFaceMovementDirection(Vector2Int dir) {
+            if (dir == Vector2Int.up) {
+                transform.localRotation = Quaternion.Euler(0,0,0);
+            }
+
+            if (dir == Vector2Int.down) {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            if (dir == Vector2Int.right) {
+                transform.localRotation = Quaternion.Euler(0, 90, 0);
+            }
+
+            if (dir == Vector2Int.left) {
+                transform.localRotation = Quaternion.Euler(0, -90, 0);
+            }
         }
 
         private void MoveOn(MapTile tile)

@@ -22,7 +22,7 @@ namespace WinterJam.Managers
             if (Input.GetKeyDown(KeyCode.Q)) {
                 SwitchCharacter();
             }
-            
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _selectedCharacter.Interact();
@@ -40,14 +40,41 @@ namespace WinterJam.Managers
 
         private void MoveCharacter()
         {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-                _selectedCharacter.MoveTo(Vector2Int.up);
-            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-                _selectedCharacter.MoveTo(Vector2Int.down);
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                _selectedCharacter.MoveTo(Vector2Int.left);
-            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                _selectedCharacter.MoveTo(Vector2Int.right);
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+                MoveUp();
+            }
+
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
+                MoveDown();
+            }
+
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+                MoveLeft();
+            }
+
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+                MoveRight();
+            }
+        }
+
+        public void MoveRight() {
+            Debug.Log("MoveRight");
+            _selectedCharacter.MoveTo(Vector2Int.right);
+        }
+
+        public void MoveLeft() {
+            Debug.Log("MoveLeft");
+            _selectedCharacter.MoveTo(Vector2Int.left);
+        }
+
+        public void MoveDown() {
+            Debug.Log("MoveDown");
+            _selectedCharacter.MoveTo(Vector2Int.down);
+        }
+
+        public void MoveUp() {
+            Debug.Log("MoveUp");
+            _selectedCharacter.MoveTo(Vector2Int.up);
         }
 
         // private void CheckClick()

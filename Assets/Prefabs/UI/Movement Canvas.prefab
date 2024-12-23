@@ -28,10 +28,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3610295649245423517}
   - {fileID: 6899948227793704095}
-  - {fileID: 4925368392858058461}
   - {fileID: 6746778161345066955}
+  - {fileID: 3610295649245423517}
+  - {fileID: 4925368392858058461}
   m_Father: {fileID: 4804274135727869780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -149,6 +149,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6138785489618344176}
     m_Modifications:
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinterJam.Managers.PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6352102417594033600, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -231,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467519512373551777, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Name
-      value: Go D Arrow
+      value: Go A Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -251,6 +275,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6138785489618344176}
     m_Modifications:
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinterJam.Managers.PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6352102417594033600, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -333,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467519512373551777, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Name
-      value: Go S Arrow
+      value: Go W Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -353,6 +401,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6138785489618344176}
     m_Modifications:
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinterJam.Managers.PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6352102417594033600, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -435,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467519512373551777, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Name
-      value: Go A Arrow
+      value: Go D Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -455,6 +527,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6138785489618344176}
     m_Modifications:
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WinterJam.Managers.PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 669987532081032103, guid: 919562d8812e7b248be1b213615608c2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6352102417594033600, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -537,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7467519512373551777, guid: 919562d8812e7b248be1b213615608c2, type: 3}
       propertyPath: m_Name
-      value: Go W Arrow
+      value: Go S Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
