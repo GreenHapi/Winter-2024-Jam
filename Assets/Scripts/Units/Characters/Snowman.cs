@@ -85,14 +85,13 @@ namespace WinterJam.Units.Characters
 
             foreach (var offset in directions)
             {
-                Vector2Int nextPos = GridPosition + offset;
-
-                // Boundary check
-                if (nextPos.x < 0 || nextPos.y < 0 || 
-                    nextPos.x >= map.GetLength(0) || nextPos.y >= map.GetLength(1))
+                int gridPositionX = GridPosition.x + offset.x;
+                int gridPositionY = GridPosition.y + offset.y;
+                if (MapManager.Instance.IsPositionInsideMapBounds(gridPositionX, gridPositionY) == false)
+                {
+                    Debug.Log("Out of map bounds.");
                     continue;
-
-                var tile = map[nextPos.x, nextPos.y];
+                }
 
                 if (tile != null && tile.Unit == null) // Ensure the tile exists and is unoccupied
                 {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Audio;
+using UnityEngine;
 using WinterJam.Units.Characters;
 
 namespace WinterJam.Managers
@@ -10,6 +11,8 @@ namespace WinterJam.Managers
 
         public Character SelectedCharacter { get; private set; }
 
+        [SerializeField] private SfxAudioController _audioController;
+
          private void Start()
         {
             SelectedCharacter = _soldier;
@@ -19,7 +22,12 @@ namespace WinterJam.Managers
         {
             if (!TurnsManager.Instance.IsPlayerTurn) return;
 
+            Vector2 previousGridPosition = SelectedCharacter.GridPosition;
             MoveCharacter();
+            if (previousGridPosition != SelectedCharacter.GridPosition)
+            {
+                _audioController.PlayRandom();
+            }
 
             if (Input.GetKeyDown(KeyCode.Q)) {
                 SwitchCharacter();
