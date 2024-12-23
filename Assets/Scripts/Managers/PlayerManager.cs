@@ -42,6 +42,8 @@ namespace WinterJam.Managers
 
         private void MoveCharacter()
         {
+            if (!TurnsManager.Instance.IsPlayerTurn) return;
+            
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                 MoveUp();
             }
@@ -60,22 +62,22 @@ namespace WinterJam.Managers
         }
 
         public void MoveRight() {
-            Debug.Log("MoveRight");
+            // Debug.Log("MoveRight");
             SelectedCharacter.MoveTo(Vector2Int.right);
         }
 
         public void MoveLeft() {
-            Debug.Log("MoveLeft");
+            // Debug.Log("MoveLeft");
             SelectedCharacter.MoveTo(Vector2Int.left);
         }
 
         public void MoveDown() {
-            Debug.Log("MoveDown");
+            // Debug.Log("MoveDown");
             SelectedCharacter.MoveTo(Vector2Int.down);
         }
 
         public void MoveUp() {
-            Debug.Log("MoveUp");
+            // Debug.Log("MoveUp");
             SelectedCharacter.MoveTo(Vector2Int.up);
         }
 

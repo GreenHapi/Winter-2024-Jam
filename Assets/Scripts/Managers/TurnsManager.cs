@@ -8,11 +8,11 @@ namespace WinterJam.Managers
 {
     public class TurnsManager : MonoBehaviour
     {
-        public TurnsManager Instance { get; private set; }
+        public static TurnsManager Instance { get; private set; }
         private void OnValidate() => Instance = this;
 
         public event Action TurnChanged;
-        public bool IsPlayerTurn { get; private set;  } = true;
+        [field:SerializeField] public bool IsPlayerTurn { get; private set;  } = true;
 
         [Button]
         public void NextTurn()
