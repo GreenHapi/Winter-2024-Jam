@@ -8586,7 +8586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7761402276735873287, guid: 3a624fa81130eee469e9809a71c2a747, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15836,6 +15836,14 @@ PrefabInstance:
       propertyPath: _standingOnTile
       value: 
       objectReference: {fileID: 1186560778}
+    - target: {fileID: 6732445038057503595, guid: 0f45cc9d291a1ab45968e34da7590281, type: 3}
+      propertyPath: <MaxMoves>k__BackingField
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732445038057503595, guid: 0f45cc9d291a1ab45968e34da7590281, type: 3}
+      propertyPath: <MovesLeft>k__BackingField
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6927150557569932134, guid: 0f45cc9d291a1ab45968e34da7590281, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3

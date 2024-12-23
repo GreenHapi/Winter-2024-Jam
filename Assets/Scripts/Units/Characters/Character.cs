@@ -9,6 +9,7 @@ public abstract class Character : Unit {
     // [field:SerializeField] public bool isActioned { get; private set; }
     [field: SerializeField] public int MaxMoves { get; private set; }
     [field: SerializeField] public int MovesLeft { get; private set; }
+    [SerializeField] private bool _allowDiagonalInteractions = false;
 
     private IInteractable _foundInteractable;
 
@@ -17,15 +18,27 @@ public abstract class Character : Unit {
 
         MapTile tile = null;
 
-        try {
-            tile = MapManager.Instance.MapTilesMatrix[GridPosition.x + dir.x, GridPosition.y + dir.y];
-        }
-        catch (Exception e) {
-            Debug.Log(e);
+        int gridPositionX = GridPosition.x + dir.x;
+        int gridPositionY = GridPosition.y + dir.y;
+        if (MapManager.Instance.IsPositionInsideMapBounds(gridPositionX, gridPositionY) == false) {
+            Debug.Log($"{gridPositionX}, {gridPositionY}");
             return;
         }
 
-        if (tile is null || tile.Unit) {
+        try {
+            tile = MapManager.Instance.MapTilesMatrix[gridPositionX, gridPositionY];
+        }
+        catch (Exception e) {
+            Debug.Log($"{gridPositionX}, {gridPositionX}");
+            Console.WriteLine(e);
+            throw;
+        }
+
+        if (tile == null) {
+            return;
+        }
+
+        if (tile.Unit) {
             return;
         }
 
@@ -65,7 +78,7 @@ public abstract class Character : Unit {
         GridPosition = tile.GridPosition;
         _standingOnTile = tile;
         transform.localPosition = tile.transform.position;
-        FindForInteractsNearby();
+        FindInteractableNextToTheCharacter();
 
         // if ((int)Vector2.Distance(tile.GridPosition, new(transform.localPosition.x, transform.position.z)) <= MaxMoves)
         // {
@@ -92,26 +105,47 @@ public abstract class Character : Unit {
         MovesLeft = MaxMoves;
     }
 
-    public void FindForInteractsNearby() {
-        if (this is not Soldier) return;
+    private void FindInteractableNextToTheCharacter() {
+        if (this is not Soldier) {
+            return;
+        }
 
-        var map = MapManager.Instance.MapTilesMatrix;
+        MapTile[,] map = MapManager.Instance.MapTilesMatrix;
 
-
-        Vector2Int[] directions = {
-            new Vector2Int(1, 1),
-            new Vector2Int(1, -1),
-            new Vector2Int(-1, 1),
-            new Vector2Int(-1, -1),
-            new Vector2Int(0, 1),
-            new Vector2Int(0, -1),
-            new Vector2Int(1, 0),
-            new Vector2Int(-1, 0)
+        Vector2Int[] allDirections = {
+            new(1, 1),
+            new(1, -1),
+            new(-1, 1),
+            new(-1, -1),
+            new(0, 1),
+            new(0, -1),
+            new(1, 0),
+            new(-1, 0)
         };
 
-        foreach (var offset in directions) {
-            var element = map[GridPosition.x + offset.x, GridPosition.y + offset.y];
-            if (element && element.Unit is IInteractable interactable) {
+        Vector2Int[] nonDiagonalDirections = {
+            new(0, 1),
+            new(0, -1),
+            new(1, 0),
+            new(-1, 0)
+        };
+
+        Vector2Int[] directions = _allowDiagonalInteractions ? allDirections : nonDiagonalDirections;
+
+        foreach (Vector2Int offset in directions) {
+            int gridPositionX = GridPosition.x + offset.x;
+            int gridPositionY = GridPosition.y + offset.y;
+
+            if (MapManager.Instance.IsPositionInsideMapBounds(gridPositionX, gridPositionY) == false) {
+                return;
+            }
+
+            MapTile tile = map[gridPositionX, gridPositionY];
+            if (tile is null) {
+                return;
+            }
+
+            if (tile && tile.Unit is IInteractable interactable) {
                 print(interactable);
                 _foundInteractable = interactable;
                 break;
