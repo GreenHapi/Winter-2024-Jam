@@ -47079,23 +47079,19 @@ MonoBehaviour:
 
     evil snowmen.
 
-    
 
     Light
     torches with the Soldier at campfires.
 
-    
 
-    Use a lit torch to melt frozen
-    houses.
-
-    
-
-    Move the camera with the Left Mouse Button.
+    Use a lit torch to melt frozen houses.
 
 
-    Zoom with
-    the scroll wheel.'
+    Move
+    the camera with the Left Mouse Button.
+
+
+    Zoom with the scroll wheel.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2f2b0c12be40aaf4d97ac00694bc8934, type: 2}
   m_sharedMaterial: {fileID: 8579280870463860932, guid: 2f2b0c12be40aaf4d97ac00694bc8934, type: 2}
