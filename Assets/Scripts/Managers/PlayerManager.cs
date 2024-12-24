@@ -12,6 +12,7 @@ namespace WinterJam.Managers
         public Character SelectedCharacter { get; private set; }
 
         [SerializeField] private SfxAudioController _audioController;
+        [SerializeField] private AudioSource _uiClickSFX;
 
          private void Start()
         {
@@ -31,11 +32,13 @@ namespace WinterJam.Managers
 
             if (Input.GetKeyDown(KeyCode.Q)) {
                 SwitchCharacter();
+                _uiClickSFX.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 SelectedCharacter.Interact();
+                _uiClickSFX.Play();
             }
         }
 
