@@ -39,14 +39,14 @@ namespace WinterJam.Units.Characters
 
         private void OnDisable() => TurnsManager.Instance.TurnChanged -= MoveToTarget;
 
-        private async void MoveToTarget()
+        private void MoveToTarget()
         {
             if (TurnsManager.Instance.IsPlayerTurn || destroyCancellationToken.IsCancellationRequested)
                 return;
 
             for (int i = 0; i < MaxMoves; i++)
             {
-                destroyCancellationToken.ThrowIfCancellationRequested();
+                // destroyCancellationToken.ThrowIfCancellationRequested();
 
                 Vector2Int direction = CheckFreeDirection();
                 if (direction == Vector2Int.zero)
@@ -57,8 +57,8 @@ namespace WinterJam.Units.Characters
 
                 FoundInteractable?.TryInteract(this);
 
-                await Task.Delay(1000);
-                destroyCancellationToken.ThrowIfCancellationRequested();
+                // await Task.Delay(1000);
+                // destroyCancellationToken.ThrowIfCancellationRequested();
             }
 
             TurnsManager.Instance.EnemyFinishedItsMovement();
@@ -110,9 +110,9 @@ namespace WinterJam.Units.Characters
             return bestDir;
         }
 
-        private void OnDestroy()
-        {
-            destroyCancellationToken.ThrowIfCancellationRequested();
-        }
+        // private void OnDestroy()
+        // {
+        //     destroyCancellationToken.ThrowIfCancellationRequested();
+        // }
     }
 }
