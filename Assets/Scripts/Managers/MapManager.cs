@@ -40,7 +40,7 @@ public class MapManager : MonoBehaviour {
         bool isPositionInsideMapBounds = (gridPositionX < MapSize && gridPositionX >= 0) &&
                                          (gridPositionY < MapSize && gridPositionY >= 0);
         if (!isPositionInsideMapBounds) {
-            Debug.Log($"Position x:{gridPositionX}, y: {gridPositionY} is not inside map bounds.");
+            // Debug.Log($"Position x:{gridPositionX}, y: {gridPositionY} is not inside map bounds.");
         }
 
         return isPositionInsideMapBounds;
