@@ -109,5 +109,10 @@ namespace WinterJam.Units.Characters
 
             return bestDir;
         }
+
+        private void OnDestroy()
+        {
+            destroyCancellationToken.ThrowIfCancellationRequested();
+        }
     }
 }
