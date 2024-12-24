@@ -33124,7 +33124,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 164}
-  m_SizeDelta: {x: 522.2, y: 210}
+  m_SizeDelta: {x: 570, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349737255
 MonoBehaviour:
@@ -33146,7 +33146,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Presents Delivery Company
+  m_text: 'Operation
+
+    "THAW"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ad71a02752420b48b05edda54962664, type: 2}
   m_sharedMaterial: {fileID: -1095411354144313053, guid: 2ad71a02752420b48b05edda54962664, type: 2}
@@ -33173,8 +33175,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 62
-  m_fontSizeBase: 62
+  m_fontSize: 58
+  m_fontSizeBase: 58
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
